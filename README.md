@@ -1,4 +1,4 @@
 # TODO-API
 
-basic crud api
+an excuse to learn more about golang
 
