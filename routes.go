@@ -19,5 +19,6 @@ var routes = Routes{
     Route{"Index", "GET", "/", Index},
     Route{"TodoIndex", "GET", `/` + baseTodoRoute, TodoIndex},
     Route{"TodoShow", "GET", `/` + baseTodoRoute + `/{todoId}`, TodoShow},
+    Route{"TodoCreate", "POST", `/` + baseTodoRoute, TodoCreate},
 }
 
