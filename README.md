@@ -1,4 +1,3 @@
-# TODO-API
+# Murilo's Epic Silly System
 
-an excuse to learn more about golang
 
