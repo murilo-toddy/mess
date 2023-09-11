@@ -1,13 +1,13 @@
 package main
 
 import (
-    "log"
-    "net/http"
+	"log"
+	"net/http"
 )
 
 const port = ":8080"
 
 func main() {
-    router := NewRouter()
-    log.Fatal(http.ListenAndServe(port, router))
+	router := NewRouter()
+	log.Fatal(http.ListenAndServe(port, router))
 }

@@ -3,22 +3,21 @@ package main
 import "net/http"
 
 type Route struct {
-    Name        string
-    Method      string
-    Path        string
-    HandlerFunc http.HandlerFunc
+	Name        string
+	Method      string
+	Path        string
+	HandlerFunc http.HandlerFunc
 }
 
 type Routes []Route
 
 const (
-    baseTodoRoute = "todos"
+	baseTodoRoute = "todos"
 )
 
 var routes = Routes{
-    Route{"Index", "GET", "/", Index},
-    Route{"TodoIndex", "GET", `/` + baseTodoRoute, TodoIndex},
-    Route{"TodoShow", "GET", `/` + baseTodoRoute + `/{todoId}`, TodoShow},
-    Route{"TodoCreate", "POST", `/` + baseTodoRoute, TodoCreate},
+	Route{"Index", "GET", "/", Index},
+	Route{"TodoIndex", "GET", `/` + baseTodoRoute, TodoIndex},
+	Route{"TodoShow", "GET", `/` + baseTodoRoute + `/{todoId}`, TodoShow},
+	Route{"TodoCreate", "POST", `/` + baseTodoRoute, TodoCreate},
 }
-
