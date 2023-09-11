@@ -1,4 +1,4 @@
-package main
+package api
 
 import (
 	"encoding/json"
@@ -8,6 +8,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+    "github.com/murilo-toddy/mess/model/todo"
+    "github.com/murilo-toddy/mess/db"
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -17,7 +19,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func TodoIndex(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	err := json.NewEncoder(w).Encode(todos)
+	err := json.NewEncoder(w).Encode(todo.todos)
 	if err != nil {
 		panic(err)
 	}
@@ -42,7 +44,7 @@ func TodoCreate(w http.ResponseWriter, r *http.Request) {
         }
     }
 
-	t := DataTodoCreate(todo)
+	t := db.DataTodoCreate(todo)
     w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusCreated)
 	if err := json.NewEncoder(w).Encode(t); err != nil {

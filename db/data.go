@@ -1,27 +1,30 @@
-package main
+package db
 
-import "fmt"
+import (
+    "fmt"
+    "github.com/murilo-toddy/mess/model/todo"
+)
 
 var currentId int
 
-var todos Todos
+var todos todo.Todos
 
 func init() {
-	DataTodoCreate(Todo{Name: "Task 1"})
-	DataTodoCreate(Todo{Name: "Task 2"})
+	DataTodoCreate(todo.Todo{Name: "Task 1"})
+	DataTodoCreate(todo.Todo{Name: "Task 2"})
 }
 
-func DataTodoFind(id int) Todo {
+func DataTodoFind(id int) todo.Todo {
 	for _, todo := range todos {
 		if todo.Id == id {
 			return todo
 		}
 	}
 	// not found
-	return Todo{}
+	return todo.Todo{}
 }
 
-func DataTodoCreate(todo Todo) Todo {
+func DataTodoCreate(todo todo.Todo) todo.Todo {
 	currentId += 1
 	todo.Id = currentId
 	todos = append(todos, todo)
